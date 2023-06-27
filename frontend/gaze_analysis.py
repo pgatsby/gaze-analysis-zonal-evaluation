@@ -90,7 +90,7 @@ class GazeAnalysis(QWidget):
         self.dropdown.setSizePolicy(
             QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         self.dropdown.addItems(
-            ["Continuos Snapshot", "Cumulative Snapshot", "Overlapping Snapshot", "Event Analytics"])
+            ["Continuous Snapshot", "Cumulative Snapshot", "Overlapping Snapshot", "Event Analytics"])
 
         self.dropdown.setStyleSheet("""
         QComboBox{
@@ -125,7 +125,44 @@ class GazeAnalysis(QWidget):
         self.layout.addWidget(self.textFieldLabel, 4, 1)
         self.layout.addWidget(self.textField, 5, 1)
 
+        # Additional dropdowns and input field for Event Analytics
+        self.dropdown2 = QComboBox()
+        self.dropdown2.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        self.dropdown2.addItems(["Option 1", "Option 2", "Option 3"])  
+        self.dropdown2.setStyleSheet("""
+        QComboBox{
+            background-color: white;
+            padding: 5px;
+            margin: 0px;
+        }
+        """)
+        self.dropdown2.setEnabled(False)
+        self.dropdown2.setVisible(False)
 
+        self.dropdown3 = QComboBox()
+        self.dropdown3.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
+        self.dropdown3.addItems(["Option 1", "Option 2", "Option 3"]) 
+        self.dropdown3.setStyleSheet("""
+        QComboBox{
+            background-color: white;
+            padding: 5px;
+            margin: 0px;
+        }
+        """)
+        self.dropdown3.setEnabled(False)
+        self.dropdown3.setVisible(False)
+
+        self.layout.addWidget(self.dropdown2, 6, 0)
+        self.layout.addWidget(self.dropdown3, 6, 1)
+
+
+        self.dropdown.currentIndexChanged.connect(self.toggle_event_analytics_options)
+
+
+        # Create a QVBoxLayout and add the existing QGridLayout to it
+        self.outerLayout = QVBoxLayout()
+        self.outerLayout.addLayout(self.layout)
+        self.outerLayout.addStretch(1)
 
         # Run Analysis Button 
         self.hbox4 = QHBoxLayout()
@@ -136,11 +173,11 @@ class GazeAnalysis(QWidget):
         self.hbox4.addStretch(1)
         self.hbox4.addWidget(self.button4)
         self.hbox4.addStretch(1)
-        # Add the QHBoxLayout to your grid layout
-        self.layout.addLayout(self.hbox4, 6, 0, 1, 2)
 
+        # Add the QHBoxLayout to your outer QVBoxLayout
+        self.outerLayout.addLayout(self.hbox4)
 
-        self.setLayout(self.layout)
+        self.setLayout(self.outerLayout) 
 
     def select_file1(self):
         file1, _ = QFileDialog.getOpenFileName(self, 'Select gaze file')
@@ -168,6 +205,7 @@ class GazeAnalysis(QWidget):
             self.dropdown.setEnabled(True)
             self.textField.setEnabled(True)
         else:
+            self.dropdown.setCurrentIndex(0)  # Reset dropdown to default
             self.dropdown.setEnabled(False)
             self.textField.setEnabled(False)
             self.dropdown.setVisible(False)
@@ -175,3 +213,22 @@ class GazeAnalysis(QWidget):
             self.textFieldLabel.setVisible(False)
             self.dropdown.setEnabled(False)
             self.textField.setEnabled(False)
+            self.dropdown2.setEnabled(False)
+            self.dropdown3.setEnabled(False)
+            self.dropdown2.setVisible(False)
+            self.dropdown3.setVisible(False)
+
+
+    def toggle_event_analytics_options(self):
+        # If the selected item is 'Event Analytics', display additional dropdowns and input field
+        if self.dropdown.currentText() == 'Event Analytics':
+            self.dropdown2.setEnabled(True)
+            self.dropdown3.setEnabled(True)
+            self.dropdown2.setVisible(True)
+            self.dropdown3.setVisible(True)
+        else:
+            self.dropdown2.setEnabled(False)
+            self.dropdown3.setEnabled(False)
+            self.dropdown2.setVisible(False)
+            self.dropdown3.setVisible(False)
+
