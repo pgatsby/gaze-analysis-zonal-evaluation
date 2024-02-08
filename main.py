@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QApplication, QTabWidget, QVBoxLayout, QWidget
-from frontend.gaze_analysis import GazeAnalysis
-from frontend.machine_learning import MachineLearning
+from gui.gaze_analysis import GazeAnalysis
+from gui.machine_learning import MachineLearning
 
 
 class MainWindow(QWidget):
