@@ -4,48 +4,52 @@
 
 ## About The Project
 
-<div align="center"> 
-
-<img width="600" alt="gaze-window" src="https://github.com/p-gatsby/GAZE/assets/106583795/c5671cd4-c368-4f07-b3e8-a55dc9cd508d">
+<div align="center">
+<img width="600" alt="main" src="https://github.com/p-gatsby/GAZE/assets/106583795/c5671cd4-c368-4f07-b3e8-a55dc9cd508d">
 </div>
 
-This application, developed with PyQT, Sci-Kit Learn, and Matplotlib, analyzes raw gaze data output from Gazepoint eye-tracking software. It is a prototype and currently under development.<!-- GETTING STARTED -->
+GAZE is an application developed with PyQT, Sci-Kit Learn, and Matplotlib to analyze raw gaze data output from Gazepoint eye-tracking software. This prototype is currently under development and aims to provide insights into eye-tracking data for various analytical purposes.
+
+<!-- GETTING STARTED -->
+
 ## Getting Started
 
-Welcome to GAZE (gaze-analysis-zonal-evaluation)! This guide provides detailed steps to set up the environment and install this project on your local computer.
+Welcome to GAZE (Gaze-Analysis-Zonal-Evaluation)! Follow these instructions to set up the environment and run this project on your local machine.
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed:
+Ensure you have the following installed before getting started:
 
-- Python3
+- [Python 3](https://www.python.org/)
 
 ### Installation
 
-Clone the repository > gaze-analysis-zonal-evaluation
+1. **Clone the Repository**  
+   Clone the repository to your local machine:
 
-  ```bash
-  git clone https://github.com/p-gatsby/gaze-analysis-zonal-evaluation.git
-  ```
+   ```bash
+   git clone https://github.com/p-gatsby/gaze-analysis-zonal-evaluation.git
+   ```
 
-Packages installation ~ > gaze-analysis-zonal-evaluation
+2. **Install Packages**  
+   Navigate to the project directory and set up a virtual environment, then install the required Python packages:
 
-- Install virtual environment:
+   ```bash
+   cd gaze-analysis-zonal-evaluation
+   python3 -m venv env
+   source env/bin/activate
+   pip install -r requirements.txt
+   ```
 
-  ```sh
-  python3 -m venv env
-  ```
-  
-- Install python dependencies
-  ```sh
-  pip install -r requirements.txt
-  ```
+### Running the App
 
-### Running the app
-  
-  ```sh
-  python main.py
-  ```
+To run the application, execute the main script:
+
+```bash
+python main.py
+```
+
+The application will launch, and you can start analyzing gaze data as per the functionality provided.
 
 <!-- LICENSE -->
 
