@@ -28,7 +28,7 @@ Ensure you have the following installed before getting started:
    Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/p-gatsby/gaze-analysis-zonal-evaluation.git
+   git clone https://github.com/pgatsby/gaze-analysis-zonal-evaluation.git
    ```
 
 2. **Install Packages**  
